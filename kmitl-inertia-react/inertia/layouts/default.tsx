@@ -3,6 +3,7 @@ import { toast, Toaster } from 'sonner'
 import { usePage } from '@inertiajs/react'
 import { type ReactElement, useEffect, useState } from 'react'
 import { Form, Link } from '@adonisjs/inertia/react'
+import Footer from '~/components/footer'
 import {
   AppBar,
   Avatar,
@@ -115,9 +116,11 @@ export default function Layout({ children }: { children: ReactElement<Data.Share
         </Container>
       </AppBar>
 
-      <Box component="div" sx={{ flex: 1 }}>
+      <Box component="div" sx={{ flex: 1, display: 'flex', flexDirection: 'column' }}>
         {children}
       </Box>
+
+      <Footer />
 
       <Toaster position="top-center" richColors />
     </Box>
