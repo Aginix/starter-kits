@@ -60,7 +60,7 @@ export default function Home() {
         <Stack direction={{ xs: 'column', sm: 'row' }} spacing={2} sx={{ mt: 2 }}>
           <Button
             component={Link}
-            route="new_account.create"
+            route="session.create"
             variant="contained"
             size="large"
             endIcon={<ArrowForwardIcon />}

@@ -1,6 +1,5 @@
-import { Form, Link } from '@adonisjs/inertia/react'
+import { Form } from '@adonisjs/inertia/react'
 import {
-  Box,
   Button,
   Card,
   CardContent,
@@ -74,17 +73,6 @@ export default function Login() {
           >
             Login with KMITL SSO
           </Button>
-
-          <Typography variant="body2" color="text.secondary" sx={{ mt: 3, textAlign: 'center' }}>
-            Don&apos;t have an account?{' '}
-            <Box
-              component={Link}
-              route="new_account.create"
-              sx={{ color: 'info.main', fontWeight: 600 }}
-            >
-              Sign up
-            </Box>
-          </Typography>
         </CardContent>
       </Card>
     </Container>

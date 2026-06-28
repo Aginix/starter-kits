@@ -107,14 +107,9 @@ export default function Layout({ children }: { children: ReactElement<Data.Share
                 </Menu>
               </>
             ) : (
-              <Box sx={{ display: 'flex', gap: 1 }}>
-                <Button component={Link} route="session.create" color="inherit">
-                  Login
-                </Button>
-                <Button component={Link} route="new_account.create" variant="contained">
-                  Sign up
-                </Button>
-              </Box>
+              <Button component={Link} route="session.create" variant="contained">
+                Login
+              </Button>
             )}
           </Toolbar>
         </Container>
