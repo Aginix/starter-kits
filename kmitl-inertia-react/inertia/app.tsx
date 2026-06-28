@@ -5,6 +5,8 @@ import Layout from '~/layouts/default'
 import { type Data } from '@generated/data'
 import { createRoot } from 'react-dom/client'
 import { createInertiaApp } from '@inertiajs/react'
+import { ThemeProvider } from '@mui/material/styles'
+import theme from '~/lib/theme'
 import { TuyauProvider } from '@adonisjs/inertia/react'
 import { resolvePageComponent } from '@adonisjs/inertia/helpers'
 
@@ -21,9 +23,11 @@ createInertiaApp({
   },
   setup({ el, App, props }) {
     createRoot(el).render(
-      <TuyauProvider client={client}>
-        <App {...props} />
-      </TuyauProvider>
+      <ThemeProvider theme={theme}>
+        <TuyauProvider client={client}>
+          <App {...props} />
+        </TuyauProvider>
+      </ThemeProvider>
     )
   },
   progress: {

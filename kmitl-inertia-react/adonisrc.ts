@@ -123,6 +123,10 @@ export default defineConfig({
       reloadServer: false,
     },
     {
+      pattern: 'inertia/assets/fonts/**',
+      reloadServer: false,
+    },
+    {
       pattern: 'public/**',
       reloadServer: false,
     },

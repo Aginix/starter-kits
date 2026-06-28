@@ -1,11 +1,17 @@
 <!DOCTYPE html>
-<html>
+<html class="dark-theme" lang="th">
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title inertia>
       AdonisJS
     </title>
+
+    <meta name="robots" content="index, follow">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="language" content="Thai">
+    <meta name="msapplication-TileColor" content="#da532c">
+    <meta name="theme-color" content="#ffffff">
 
     @viteReactRefresh()
     @vite(['inertia/app.tsx'])
@@ -14,7 +20,7 @@
   </head>
 
   <body>
-    @inertia()
+    @inertia({ as: 'main', class: 'h-full' })
   </body>
 
 </html>
