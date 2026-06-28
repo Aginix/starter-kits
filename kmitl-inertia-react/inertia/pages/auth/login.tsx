@@ -1,59 +1,92 @@
-import { Form } from '@adonisjs/inertia/react'
+import { Form, Link } from '@adonisjs/inertia/react'
+import {
+  Box,
+  Button,
+  Card,
+  CardContent,
+  Container,
+  Divider,
+  Stack,
+  TextField,
+  Typography,
+} from '@mui/material'
+import SchoolIcon from '@mui/icons-material/School'
 
 export default function Login() {
   return (
-    <div className="form-container">
-      <div>
-        <h1> Login </h1>
-        <p>Enter your details below to login to your account</p>
-      </div>
+    <Container
+      maxWidth="sm"
+      sx={{ display: 'flex', alignItems: 'center', minHeight: 'calc(100dvh - 64px)', py: 6 }}
+    >
+      <Card sx={{ width: '100%' }}>
+        <CardContent sx={{ p: { xs: 3, sm: 5 } }}>
+          <Stack spacing={1} sx={{ mb: 4 }}>
+            <Typography variant="h4" component="h1">
+              Login
+            </Typography>
+            <Typography variant="body1" color="text.secondary">
+              Enter your details below to login to your account
+            </Typography>
+          </Stack>
 
-      <div>
-        <Form route="session.store">
-          {({ errors }) => (
-            <>
-              <div>
-                <label htmlFor="email">Email</label>
-                <input
-                  type="email"
+          <Form route="session.store">
+            {({ errors, processing }) => (
+              <Stack spacing={3}>
+                <TextField
+                  label="Email"
                   name="email"
+                  type="email"
                   id="email"
                   autoComplete="username"
-                  data-invalid={errors.email ? 'true' : undefined}
+                  fullWidth
+                  required
+                  error={!!errors.email}
+                  helperText={errors.email}
                 />
-                {errors.email && <div>{errors.email}</div>}
-              </div>
-
-              <div>
-                <label htmlFor="password">Password</label>
-                <input
-                  type="password"
+                <TextField
+                  label="Password"
                   name="password"
+                  type="password"
                   id="password"
                   autoComplete="current-password"
+                  fullWidth
+                  required
+                  error={!!errors.password}
+                  helperText={errors.password}
                 />
-                {errors.password ? <span>{errors.password}</span> : ''}
-              </div>
+                <Button type="submit" variant="contained" size="large" disabled={processing}>
+                  {processing ? 'Logging in…' : 'Login'}
+                </Button>
+              </Stack>
+            )}
+          </Form>
 
-              <div>
-                <button type="submit" className="button">
-                  Login
-                </button>
-              </div>
-            </>
-          )}
-        </Form>
-        <div style={{ marginTop: 16 }}>
-          <div style={{ textAlign: 'center', opacity: 0.6, margin: '8px 0' }}>or</div>
-          <a
+          <Divider sx={{ my: 3, color: 'text.secondary' }}>or</Divider>
+
+          <Button
+            component="a"
             href="/auth/kmitl/redirect"
-            className="button"
-            style={{ display: 'block', textAlign: 'center' }}
+            variant="outlined"
+            color="inherit"
+            size="large"
+            fullWidth
+            startIcon={<SchoolIcon />}
           >
             Login with KMITL SSO
-          </a>
-        </div>
-      </div>
-    </div>
+          </Button>
+
+          <Typography variant="body2" color="text.secondary" sx={{ mt: 3, textAlign: 'center' }}>
+            Don&apos;t have an account?{' '}
+            <Box
+              component={Link}
+              route="new_account.create"
+              sx={{ color: 'info.main', fontWeight: 600 }}
+            >
+              Sign up
+            </Box>
+          </Typography>
+        </CardContent>
+      </Card>
+    </Container>
   )
 }
