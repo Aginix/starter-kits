@@ -13,7 +13,7 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        starter-kit: [hypermedia, inertia-react, inertia-vue]
+        starter-kit: [inertia-react]
 
     name: ${{ matrix.starter-kit }}
 
