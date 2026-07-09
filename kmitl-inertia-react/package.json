@@ -64,6 +64,7 @@
   "dependencies": {
     "@adonisjs/ally": "^6.3.0",
     "@adonisjs/auth": "^10.1.0",
+    "@adonisjs/bouncer": "^4.0.0",
     "@adonisjs/core": "^7.3.3",
     "@adonisjs/cors": "^3.0.0",
     "@adonisjs/inertia": "^4.2.0",
@@ -74,6 +75,7 @@
     "@adonisjs/vite": "^5.1.1",
     "@aginix/adonis-ally-oidc": "^0.1.0",
     "@aginix/adonis-vulcan": "^0.1.3",
+    "@aginix/vulcan-data-provider": "^0.1.1",
     "@aginix/vulcan-js": "^0.2.1",
     "@emotion/react": "^11.14.0",
     "@emotion/styled": "^11.14.1",
@@ -86,6 +88,7 @@
     "edge.js": "^6.5.1",
     "luxon": "^3.7.2",
     "react": "^19.2.6",
+    "react-admin": "^5.15.1",
     "react-dom": "^19.2.6",
     "reflect-metadata": "^0.2.2",
     "sonner": "^2.0.7"

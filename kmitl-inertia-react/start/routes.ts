@@ -26,6 +26,14 @@ router
 
 router
   .group(() => {
+    router.any('admin', [controllers.Admin, 'handle']).as('admin')
     router.post('logout', [controllers.Session, 'destroy'])
+
+    router
+      .group(() => {
+        router.resource('users', controllers.apis.Users).apiOnly()
+      })
+      .prefix('api')
+      .as('api.')
   })
   .use(middleware.auth())

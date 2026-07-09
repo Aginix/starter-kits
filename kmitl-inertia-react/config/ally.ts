@@ -8,7 +8,6 @@ const allyConfig = defineConfig({
     clientId: env.get('OIDC_CLIENT_ID'),
     clientSecret: env.get('OIDC_CLIENT_SECRET'),
     callbackUrl: `${env.get('APP_URL')}/auth/kmitl/callback`,
-    postLogoutRedirectUri: env.get('APP_URL'),
     scopes: ['openid', 'profile', 'email', 'roles'],
   }),
 })
