@@ -26,6 +26,18 @@ router
 
 router
   .group(() => {
+    // The admin panel is a react-admin SPA mounted at /admin. Match both the
+    // base path and every client-side sub-route (e.g. /admin/users/create) so
+    // deep links and page refreshes resolve to the same Inertia page.
+    router.any('admin', [controllers.Admin, 'handle']).as('admin')
+    router.any('admin/*', [controllers.Admin, 'handle']).as('admin.spa')
     router.post('logout', [controllers.Session, 'destroy'])
+
+    router
+      .group(() => {
+        router.resource('users', controllers.apis.Users).apiOnly()
+      })
+      .prefix('api')
+      .as('api')
   })
   .use(middleware.auth())

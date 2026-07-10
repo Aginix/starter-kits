@@ -4,6 +4,10 @@
  */
 
 export const controllers = {
+  Admin: () => import('#controllers/admin_controller'),
+  apis: {
+    Users: () => import('#controllers/apis/users_controller'),
+  },
   Oidc: () => import('#controllers/oidc_controller'),
   Session: () => import('#controllers/session_controller'),
 }
