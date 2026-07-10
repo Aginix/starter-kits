@@ -79,6 +79,18 @@ export interface Registry {
       errorResponse: ExtractErrorResponse<Awaited<ReturnType<import('#controllers/admin_controller').default['handle']>>>
     }
   }
+  'admin.spa': {
+    methods: ["HEAD","OPTIONS","GET","POST","PUT","PATCH","DELETE"]
+    pattern: '/admin/*'
+    types: {
+      body: {}
+      paramsTuple: [ParamValue]
+      params: { '*': ParamValue[] }
+      query: {}
+      response: ExtractResponse<Awaited<ReturnType<import('#controllers/admin_controller').default['handle']>>>
+      errorResponse: ExtractErrorResponse<Awaited<ReturnType<import('#controllers/admin_controller').default['handle']>>>
+    }
+  }
   'session.destroy': {
     methods: ["POST"]
     pattern: '/logout'
@@ -91,7 +103,7 @@ export interface Registry {
       errorResponse: ExtractErrorResponse<Awaited<ReturnType<import('#controllers/session_controller').default['destroy']>>>
     }
   }
-  'api..users.index': {
+  'api.users.index': {
     methods: ["GET","HEAD"]
     pattern: '/api/users'
     types: {
@@ -103,7 +115,7 @@ export interface Registry {
       errorResponse: ExtractErrorResponse<Awaited<ReturnType<import('#controllers/apis/users_controller').default['index']>>>
     }
   }
-  'api..users.store': {
+  'api.users.store': {
     methods: ["POST"]
     pattern: '/api/users'
     types: {
@@ -115,7 +127,7 @@ export interface Registry {
       errorResponse: ExtractErrorResponse<Awaited<ReturnType<import('#controllers/apis/users_controller').default['store']>>>
     }
   }
-  'api..users.show': {
+  'api.users.show': {
     methods: ["GET","HEAD"]
     pattern: '/api/users/:id'
     types: {
@@ -127,7 +139,7 @@ export interface Registry {
       errorResponse: ExtractErrorResponse<Awaited<ReturnType<import('#controllers/apis/users_controller').default['show']>>>
     }
   }
-  'api..users.update': {
+  'api.users.update': {
     methods: ["PUT","PATCH"]
     pattern: '/api/users/:id'
     types: {
@@ -139,7 +151,7 @@ export interface Registry {
       errorResponse: ExtractErrorResponse<Awaited<ReturnType<import('#controllers/apis/users_controller').default['update']>>>
     }
   }
-  'api..users.destroy': {
+  'api.users.destroy': {
     methods: ["DELETE"]
     pattern: '/api/users/:id'
     types: {
