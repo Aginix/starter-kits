@@ -15,7 +15,6 @@ export const AdminApp = () => {
   const { user } = useProps()
   return (
     <Admin
-      basename="/admin"
       authProvider={getAuthProvider(user)}
       dataProvider={dataProvider}
       i18nProvider={i18nProvider}
